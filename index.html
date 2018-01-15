@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Vue Apps</title>
+  <style type="text/css">
+    body {
+      font-family: Avenir, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      color: #2c3e50;
+    }
+
+    h1,
+    h2 {
+      font-weight: 400
+    }
+
+    a {
+      color: #42b983
+    }
+
+    .app-wrapper {
+      margin-top: 60px
+    }
+
+    .project-links,
+    essential-links {
+      list-style-type: none;
+      padding: 0
+    }
+
+    .nav-list-item {
+      display: inline-block;
+      margin: 0 10px
+    }
+
+    .text-center {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="vueApps" class="app-wrapper text-center">
+    <img width="200" src="p-meme.jpg" alt="Finally sunshine image"></img>
+    <h1>Welcome to your my Vue.js playground!</h1>
+    <div>
+      <h2>Project Links</h2>
+      <ul class="project-links">
+      </ul>
+    </div>
+
+    <footer>
+      <h2>Essential Links</h2>
+      <ul class="essential-links">
+        <li class="nav-list-item"><a href="http://vuejs.org/guide" target="_blank">Core Docs</a></li>
+        <li class="nav-list-item"><a href="http://forum.vuejs.org" target="_blank">Forum</a></li>
+        <li class="nav-list-item"><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
+      </ul>
+    </footer>
+  </div>
+
+  <script>
+    window.onload = function() {
+      var projectLinks = [
+        { title: 'Notetaker', url: 'notetaker/index.html' },
+        { title: 'Menu 2',  url: '#' },
+        { title: 'Menu 3',  url: '#' }
+      ];
+
+      function buildMenuListItems(menus) {
+        var output = '';
+
+        for (var i = 0; i < menus.length; i++) {
+          var menu = menus[i];
+
+          if (!menu.url && !menu.title) return;
+
+          output += '<li class="nav-list-item">';
+          output += '<a href="' + menu.url + '" target="_blank">' + menu.title + '</a>';
+        }
+
+        output += '</li>';
+        return output;
+      }
+
+      document.querySelector('.project-links').innerHTML = buildMenuListItems(projectLinks);
+    };
+  </script>
+</body>
+
+</html>
